@@ -47,9 +47,8 @@ int js0n(unsigned char *js, unsigned int len, unsigned short *out)
         [0 ... 8]       = &&l_bad,
         [11 ... 12]     = &&l_bad,
         [14 ... 31]     = &&l_bad,
-        [33]            = &&l_bad,
-        [35 ... 43]     = &&l_bad,
-        [45 ... 92]     = &&l_bad,
+        [33 ... 43]     = &&l_loop,
+        [45 ... 92]     = &&l_loop,
         [94 ... 124]    = &&l_loop, // could be more pedantic/validation-checking
         [126]           = &&l_loop, // could be more pedantic/validation-checking
         ['\t']          = &&l_unbare, 
@@ -92,7 +91,7 @@ int js0n(unsigned char *js, unsigned int len, unsigned short *out)
         [103 ... 109]   = &&l_bad,
         [111 ... 113]   = &&l_bad,
         [115]           = &&l_bad,
-        [118 ... 225]   = &&l_bad,
+        [118 ... 255]   = &&l_bad,
         ['"']           = &&l_unesc, 
         ['\\']          = &&l_unesc, 
         ['/']           = &&l_unesc, 
